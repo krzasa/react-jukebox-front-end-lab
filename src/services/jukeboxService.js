@@ -3,7 +3,7 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/tracks`;
 
 const show = async (track) => {
     try {
-    const res = await fetch(BASE_URL + `/${track}`)
+    const res = await fetch(BASE_URL )
     const data = await res.json()
    console.log('Data:', data)
    return data;
