@@ -1,8 +1,8 @@
 // Delete Route
 // src/components/TrackDetails.jsx
 
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'; // assuming you are using react-router
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom"; // assuming you are using react-router
 
 function TrackDetails({ match }) {
   const [track, setTrack] = useState(null);
@@ -19,20 +19,20 @@ function TrackDetails({ match }) {
       const data = await response.json();
       setTrack(data);
     } catch (error) {
-      console.error('Error fetching the track:', error);
+      console.error("Error fetching the track:", error);
     }
   };
 
   const deleteTrack = async () => {
     try {
       const response = await fetch(`http://localhost:3000/tracks/${trackId}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
       if (response.ok) {
-        alert('Track deleted successfully');
-        history.push('/tracks'); // Redirect to another route, change according to your setup
+        alert("Track deleted successfully");
+        history.push("/tracks"); // Redirect to another route, change according to your setup
       } else {
-        throw new Error('Failed to delete the track');
+        throw new Error("Failed to delete the track");
       }
     } catch (error) {
       console.error(error);
