@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as jukeboxService from './services/jukeboxService';
-import trackList from './components/TrackList';
+import TrackList from './components/TrackList';
 
 const App = () => {
   const [trackList, setTrackList] = useState([])
@@ -9,7 +9,7 @@ const App = () => {
   useEffect(() => {
     const fetchTracks = async () => {
       try {
-        const tracks = await jukeboxService.index();
+        const tracks = await jukeboxService.show();
         if (tracks.error) {
           throw new Error(tracks.error);
         }
